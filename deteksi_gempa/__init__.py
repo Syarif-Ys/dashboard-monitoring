@@ -1,3 +1,7 @@
+import requests
+from bs4 import BeautifulSoup
+
+
 def ekstraksi_data():
     """
     Tanggal: 04 September 2022
@@ -9,18 +13,32 @@ def ekstraksi_data():
     Dirasakan: Dirasakan (Skala MMI): II Dieng, II Banjarnegara, II Bawang (Kab. Batang)
     :return:
     """
-    hasil = dict()
-    hasil["tanggal"] = "04 September 2022"
-    hasil["waktu"] = "04:10:14 WIB"
-    hasil["magnitudo"] = 3.1
-    hasil["kedalaman"] = "9 Km"
-    hasil["lokasi"] = {"ls":7.22, "bt":109.89}
-    hasil["pusat"] = "Pusat gempa berada di darat 16 km Barat Laut WONOSOBO"
-    hasil["dirasakan"] = "Dirasakan (Skala MMI): II Dieng, II Banjarnegara, II Bawang (Kab. Batang)"
+    try:
+        content = requests.get('https://bmkg.go.id/')
+    except Exception:
+        return None
 
-    return hasil
+    if content.status_code == 200:
+        print(content.text)
+        #soup = BeautifulSoup(content)
+        #print(soup.prettify())
+
+        hasil = dict()
+        hasil["tanggal"] = "04 September 2022"
+        hasil["waktu"] = "04:10:14 WIB"
+        hasil["magnitudo"] = 3.1
+        hasil["kedalaman"] = "9 Km"
+        hasil["lokasi"] = {"ls":7.22, "bt":109.89}
+        hasil["pusat"] = "Pusat gempa berada di darat 16 km Barat Laut WONOSOBO"
+        hasil["dirasakan"] = "Dirasakan (Skala MMI): II Dieng, II Banjarnegara, II Bawang (Kab. Batang)"
+        return hasil
+    else:
+        return None
 
 def tampilkan_data(result):
+    if result is None:
+        print("Tidak bisa menembukan gempa terkini")
+        return
     print("Gempa Terakhir berdasarkan BMKG")
     print(f"Tanggal : {result['tanggal']}")
     print(f"Waktu : {result['tanggal']}")

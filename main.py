@@ -1,8 +1,6 @@
 """
 Aplikasi deteksi gempa terkini
 """
-
-
 def ekstraksi_data():
     """
     Tanggal: 04 September 2022
@@ -24,20 +22,16 @@ def ekstraksi_data():
     hasil["dirasakan"] = "Dirasakan (Skala MMI): II Dieng, II Banjarnegara, II Bawang (Kab. Batang)"
 
     return hasil
-    pass
-
 
 def tampilkan_data(result):
     print("Gempa Terakhir berdasarkan BMKG")
-    print(f"Tanggal {result['tanggal']}")
-    print(f"Waktu {result['tanggal']}")
-    print(f"Magnitudo {result['waktu']}")
-    print(f"Kedalaman {result['kedalaman']}")
-    print(f"Lokasi: LS={result['lokasi']['ls']}, BT={result['lokasi']['bt']}")
-    print(f"pusat {result['pusat']}")
-    print(f"Dirasakan {result['dirasakan']}")
-    pass
-
+    print(f"Tanggal : {result['tanggal']}")
+    print(f"Waktu : {result['tanggal']}")
+    print(f"Magnitudo : {result['waktu']}")
+    print(f"Kedalaman : {result['kedalaman']}")
+    print(f"Lokasi : LS={result['lokasi']['ls']}, BT={result['lokasi']['bt']}")
+    print(f"pusat : {result['pusat']}")
+    print(f"Dirasakan : {result['dirasakan']}")
 
 if __name__ == "__main__":
     print("Aplikasi utama")

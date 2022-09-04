@@ -10,7 +10,7 @@ def ekstraksi_data():
     Lokasi: LS=7.22  BT=109.89
     Pusat Gempa: Pusat gempa berada di darat 16 km Barat Laut WONOSOBO
     Dirasakan: Dirasakan (Skala MMI): II Dieng, II Banjarnegara, II Bawang (Kab. Batang)
-    update
+    ganti
     :return:
     """
     hasil = dict()

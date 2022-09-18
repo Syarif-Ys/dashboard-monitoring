@@ -3,16 +3,6 @@ from bs4 import BeautifulSoup
 
 
 def ekstraksi_data():
-    """
-    Tanggal: 04 September 2022
-    Waktu: 04:10:14 WIB
-    Magnitudo: 3.1
-    Kedalaman: 9 km
-    Lokasi: LS=7.22  BT=109.89
-    Pusat Gempa: Pusat gempa berada di darat 16 km Barat Laut WONOSOBO
-    Dirasakan: Dirasakan (Skala MMI): II Dieng, II Banjarnegara, II Bawang (Kab. Batang)
-    :return:
-    """
     try:
         content = requests.get('https://bmkg.go.id/')
     except Exception:
